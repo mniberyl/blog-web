@@ -1,7 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../stores/user";
+import "./Header.scss";
+
 // import Responsive from "../common/responsive/Responsive";
 // import Button from './Button';
+
+const HeaderContainer = () => {
+  const { user } = useSelector(({ user }) => ({
+    user: user.user,
+  }));
+  const dispatch = useDispatch();
+  const onLogout = () => {
+    dispatch(logout());
+  };
+  return <Header user={user} onLogout={onLogout} />;
+};
 
 const Header = ({ user, onLogout }) => {
   return (
@@ -11,7 +26,7 @@ const Header = ({ user, onLogout }) => {
           <Link to="/">Beryl Blog</Link>
           {user ? (
             <div className="header__right">
-              <div class="header__right--name">아이디</div>
+              <div class="header__right--name">{user.username}</div>
               <button onClick={onLogout}>로그아웃</button>
             </div>
           ) : (
@@ -23,26 +38,7 @@ const Header = ({ user, onLogout }) => {
       </div>
       <div className="header__spacer"></div>
     </>
-
-    // <>
-    //   <HeaderBlock>
-    //     <Wrapper>
-
-    //       {user ? (
-    //         <div className="right">
-    //           <UserInfo>{user.username}</UserInfo>
-    //           <Button onClick={onLogout}>로그아웃</Button>
-    //         </div>
-    //       ) : (
-    //         <div className="right">
-    //           <Button to="/login">로그인</Button>
-    //         </div>
-    //       )}
-    //     </Wrapper>
-    //   </HeaderBlock>
-    //   <Spacer />
-    // </>
   );
 };
 
-export default Header;
+export default HeaderContainer;
