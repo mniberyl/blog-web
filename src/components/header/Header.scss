@@ -1,0 +1,31 @@
+.header {
+  position: fixed;
+  width: 100%;
+
+  &__wrapper {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 자식 엘리먼트 사이에 여백을 최대로 설정 */
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      background: none;
+      color: #000;
+    }
+    &--name {
+      font-weight: 800;
+      margin-right: 1rem;
+      padding-bottom: 0.1rem;
+    }
+  }
+}
+
+.header__spacer {
+  height: 4rem;
+}

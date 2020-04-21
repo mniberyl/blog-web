@@ -1,0 +1,91 @@
+.authblock {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #e1ded5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__box {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    width: 320px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.8s;
+  }
+
+  &__logo {
+    display: block;
+    padding-bottom: 2rem;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    a {
+      font-size: 1.3rem;
+      color: #000;
+    }
+  }
+}
+
+.authform {
+  display: block;
+
+  &__form {
+    input {
+      border: none;
+      outline: none;
+      display: flex;
+      width: 100%;
+      border-bottom: 1px solid #dddddd;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+      &:focus {
+        color: #666;
+        border-bottom: 1px solid #875e00;
+      }
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    margin-top: 1rem;
+    button {
+      outline: none;
+      width: 100%;
+      padding: 0.4rem 0;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 0.5rem;
+      background: #875e00;
+      color: #fff;
+      cursor: pointer;
+      &:hover {
+        background: #cc723d;
+      }
+    }
+  }
+
+  &__error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #bb2929;
+    margin-top: 1rem;
+  }
+
+  &__footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    a {
+      color: #543a31;
+    }
+  }
+}
