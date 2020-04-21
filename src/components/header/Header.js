@@ -21,17 +21,17 @@ const HeaderContainer = () => {
 const Header = ({ user, onLogout }) => {
   return (
     <>
-      <div className="header">
+      <div className="responsive">
         <div className="header__wrapper">
           <Link to="/">Beryl Blog</Link>
           {user ? (
             <div className="header__right">
-              <div class="header__right--name">{user.username}</div>
+              <div className="header__right--name">{user.username}</div>
               <button onClick={onLogout}>로그아웃</button>
             </div>
           ) : (
             <div className="header__right">
-              <button to="/login">로그인</button>
+              <Link to="login">로그인</Link>
             </div>
           )}
         </div>

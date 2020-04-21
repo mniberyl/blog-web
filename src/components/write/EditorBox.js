@@ -5,18 +5,20 @@ import { Editor } from "@toast-ui/react-editor";
 
 const EditorBox = () => {
   return (
-    <div className="editorblock">
-      <div className="editorblock__title">
-        <input placeholder="제목을 입력하세요." />
-      </div>
-      <div className="editor">
-        <Editor
-          initialValue="hello react editor world!"
-          previewStyle="vertical"
-          height="600px"
-          initialEditType="markdown"
-          useCommandShortcut={true}
-        />
+    <div className="responsive">
+      <div className="editorblock">
+        <div className="editorblock__title">
+          <input placeholder="제목을 입력하세요." />
+        </div>
+        <div className="editor">
+          <Editor
+            initialValue="hello react editor world!"
+            previewStyle="vertical"
+            height="600px"
+            initialEditType="markdown"
+            useCommandShortcut={true}
+          />
+        </div>
       </div>
     </div>
   );
