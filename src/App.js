@@ -5,13 +5,14 @@ import LogInPage from "./pages/LogInPage";
 import RegisterPage from "./pages/RegisterPage";
 import PostViewerPage from "./pages/PostViewerPage";
 import WritePage from "./pages/WritePage";
+
 const App = () => {
   return (
     <>
       <title>Beryl Blog</title>
       <Route component={LogInPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
-      <Route component={PostViewerPage} path="/post" />
+      <Route component={PostViewerPage} path="/@:username/:postId" />
       <Route component={WritePage} path="/write" />
     </>
   );

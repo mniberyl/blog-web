@@ -1,14 +1,16 @@
 import React from "react";
 import Header from "../components/header/Header";
 import EditorBox from "../components/write/EditorBox";
-// import Tag from "../components/write/Tag";
+import TagBox from "../components/write/TagBox";
+import WriteActionButtons from "../components/write/WriteActionButtons";
 
 const WritePage = () => {
   return (
     <div>
       <Header />
       <EditorBox />
-      {/* <Tag /> */}
+      <TagBox />
+      <WriteActionButtons />
     </div>
   );
 };

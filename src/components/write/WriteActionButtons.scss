@@ -1,0 +1,28 @@
+.writeaction {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: flex-end;
+
+  &__button {
+    height: 2rem;
+    border: 0;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: #fff;
+    cursor: pointer;
+    &--publish {
+      background: #875e00;
+      margin-right: 0.5rem;
+      &:hover {
+        background: #cc723d;
+      }
+    }
+    &--cancel {
+      background: #e2a785;
+      &:hover {
+        background: #cc723d;
+        color: #fff;
+      }
+    }
+  }
+}

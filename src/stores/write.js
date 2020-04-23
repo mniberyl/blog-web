@@ -17,7 +17,7 @@ const [
   UPDATE_POST,
   UPDATE_POST_SUCCESS,
   UPDATE_POST_FAILURE,
-] = createRequestActionTypes("write/UPDATE_POST"); // 포스트 수정
+] = createRequestActionTypes("write/UPDATE_POST");
 
 export const initialize = createAction(INITIALIZE);
 export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
@@ -40,7 +40,10 @@ export const updatePost = createAction(
   })
 );
 
-// saga 생성
+// Saga 생성
+/**
+ * 기존에 진행 중이던 작업이 있다면 취소 처리하고 가장 마지막으로 실행된 작업만 수행
+ */
 const writePostSaga = createRequestSaga(WRITE_POST, postsAPI.writePost);
 const updatePostSaga = createRequestSaga(UPDATE_POST, postsAPI.updatePost);
 
@@ -55,28 +58,25 @@ const initialState = {
   tags: [],
   post: null,
   postError: null,
-  originalPostId: null,
+  originalPostID: null,
 };
 
 const write = handleActions(
   {
-    [INITIALIZE]: (state) => initialState, // initialState를 넣으면 초기상태로 바뀜
+    [INITIALIZE]: (state) => initialState, // initialState를 넣으면 초기 상태로 변경
     [CHANGE_FIELD]: (state, { payload: { key, value } }) => ({
       ...state,
       [key]: value, // 특정 key 값을 업데이트
     }),
     [WRITE_POST]: (state) => ({
       ...state,
-      // post와 postError를 초기화
       post: null,
       postError: null,
     }),
-    // 포스트 작성 성공
     [WRITE_POST_SUCCESS]: (state, { payload: post }) => ({
       ...state,
       post,
     }),
-    // 포스트 작성 실패
     [WRITE_POST_FAILURE]: (state, { payload: postError }) => ({
       ...state,
       postError,
@@ -86,7 +86,7 @@ const write = handleActions(
       title: post.title,
       body: post.body,
       tags: post.tags,
-      originalPostId: post._id,
+      originalPostID: post._id,
     }),
     [UPDATE_POST_SUCCESS]: (state, { payload: post }) => ({
       ...state,
