@@ -1,7 +1,7 @@
-import { createAction, handleActions } from "redux-actions";
 import createRequestSaga, {
   createRequestActionTypes,
 } from "../stores/createRequestSaga";
+import { createAction, handleActions } from "redux-actions";
 import * as postsAPI from "../api/posts";
 import { takeLatest } from "redux-saga/effects";
 

@@ -1,9 +1,9 @@
-import { createAction, handleActions } from "redux-actions";
-import { takeLatest, call } from "redux-saga/effects";
-import * as authAPI from "../api/auth";
 import createRequestSaga, {
   createRequestActionTypes,
 } from "../stores/createRequestSaga";
+import { createAction, handleActions } from "redux-actions";
+import * as authAPI from "../api/auth";
+import { takeLatest, call } from "redux-saga/effects";
 
 const TEMP_SET_USER = "user/TEMP_SET_USER"; // 새로고침 이후 임시 로그인 처리
 // 회원 정보 확인

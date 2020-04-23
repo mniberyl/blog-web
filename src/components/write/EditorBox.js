@@ -34,7 +34,7 @@ const EditorBox = ({ title, body, onChangeField }) => {
     onChangeField({ key: "title", value: e.target.value });
   };
 
-  const onChangeBody = (e) => {
+  const onChangeBody = () => {
     const tuiinstance = editorRef.current.getInstance().getMarkdown();
     onChangeField({ key: "body", value: tuiinstance });
   };
