@@ -21,22 +21,33 @@ const HeaderContainer = () => {
 const Header = ({ user, onLogout }) => {
   return (
     <>
-      <div className="responsive">
-        <div className="header__wrapper">
-          <Link to="/">Beryl Blog</Link>
+      <div className="header">
+        <div className="header__wrapper responsive">
+          <div className="header__left">
+            <Link to="/">Beryl Blog</Link>
+          </div>
           {user ? (
             <div className="header__right">
-              <div className="header__right--name">{user.username}</div>
-              <button onClick={onLogout}>로그아웃</button>
+              <div className="header__right header__right-name">
+                {user.username}
+              </div>
+              <div
+                className="header__right header__right--logout"
+                onClick={onLogout}
+              >
+                Logout
+              </div>
             </div>
           ) : (
             <div className="header__right">
-              <Link to="login">로그인</Link>
+              <div className="header__right header__right--login">
+                <Link to="/login">Login</Link>
+              </div>
             </div>
           )}
         </div>
       </div>
-      <div className="header__spacer"></div>
+      <div className="headerspacer"></div>
     </>
   );
 };

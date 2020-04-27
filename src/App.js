@@ -10,10 +10,12 @@ const App = () => {
   return (
     <>
       <title>Beryl Blog</title>
-      <Route component={LogInPage} path="/login" />
-      <Route component={RegisterPage} path="/register" />
-      <Route component={PostViewerPage} path="/@:username/:postId" />
-      <Route component={WritePage} path="/write" />
+      <div className="responsive">
+        <Route component={LogInPage} path="/login" />
+        <Route component={RegisterPage} path="/register" />
+        <Route component={PostViewerPage} path="/@:username/:postId" />
+        <Route component={WritePage} path="/write" />
+      </div>
     </>
   );
 };

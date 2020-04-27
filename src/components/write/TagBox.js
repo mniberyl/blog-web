@@ -78,18 +78,16 @@ const TagBox = ({ tags, onChangeTags }) => {
   }, [tags]);
 
   return (
-    <div className="responsive">
-      <div className="tagblock">
-        <form onSubmit={onSubmit}>
-          <input
-            placeholder="태그를 입력하세요."
-            value={input}
-            onChange={onChange}
-          />
-          <button type="submit">태그 추가</button>
-        </form>
-        <TagList tags={localTags} onRemove={onRemove} />
-      </div>
+    <div className="tagblock">
+      <form onSubmit={onSubmit}>
+        <input
+          placeholder="태그를 입력하세요."
+          value={input}
+          onChange={onChange}
+        />
+        <button type="submit">태그 추가</button>
+      </form>
+      <TagList tags={localTags} onRemove={onRemove} />
     </div>
   );
 };

@@ -59,21 +59,19 @@ const WriteActionButtonsContainer = ({ history }) => {
 
 const WriteActionButtons = ({ onPublish, onCancel, isEdit }) => {
   return (
-    <div className="responsive">
-      <div className="writeaction">
-        <button
-          className="writeaction__button writeaction__button--publish"
-          onClick={onPublish}
-        >
-          포스트 {isEdit ? "수정" : "등록"}
-        </button>
-        <button
-          className="writeaction__button writeaction__button--cancel"
-          onClick={onCancel}
-        >
-          취소
-        </button>
-      </div>
+    <div className="writeaction">
+      <button
+        className="writeaction__button writeaction__button--publish"
+        onClick={onPublish}
+      >
+        포스트 {isEdit ? "수정" : "등록"}
+      </button>
+      <button
+        className="writeaction__button writeaction__button--cancel"
+        onClick={onCancel}
+      >
+        취소
+      </button>
     </div>
   );
 };
