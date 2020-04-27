@@ -8,7 +8,7 @@ const WriteActionButtonsContainer = ({ history }) => {
   const dispatch = useDispatch();
   const { title, body, tags, post, postError, originalPostId } = useSelector(
     ({ write }) => ({
-      title: write.write,
+      title: write.title,
       body: write.body,
       tags: write.tags,
       post: write.post,
@@ -18,6 +18,7 @@ const WriteActionButtonsContainer = ({ history }) => {
   );
 
   // 포스트 등록
+  // originalPostId값이 존재하면 updatePost 액션 생성 함수 사용
   const onPublish = () => {
     if (originalPostId) {
       dispatch(updatePost({ title, body, tags, id: originalPostId }));
@@ -45,6 +46,7 @@ const WriteActionButtonsContainer = ({ history }) => {
     }
     if (postError) {
       console.log(postError);
+      console.log(post);
     }
   });
 

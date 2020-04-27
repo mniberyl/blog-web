@@ -12,6 +12,8 @@ const EditorBoxContainer = () => {
     title: write.title,
     body: write.body,
   }));
+
+  // 나중에 Editor에서 사용할 useEffect가 컴포넌트가 화면에 나타났을 때 딱 한 번만 실행되기 때문
   const onChangeField = useCallback(
     (payload) => dispatch(changeField(payload)),
     [dispatch]
@@ -30,13 +32,13 @@ const EditorBoxContainer = () => {
 const EditorBox = ({ title, body, onChangeField }) => {
   const editorRef = useRef();
 
-  const onChangeTitle = (e) => {
-    onChangeField({ key: "title", value: e.target.value });
-  };
-
-  const onChangeBody = () => {
+  const onChangeBody = (e) => {
     const tuiinstance = editorRef.current.getInstance().getMarkdown();
     onChangeField({ key: "body", value: tuiinstance });
+  };
+
+  const onChangeTitle = (e) => {
+    onChangeField({ key: "title", value: e.target.value });
   };
 
   return (
@@ -44,8 +46,8 @@ const EditorBox = ({ title, body, onChangeField }) => {
       <div className="editorblock__title">
         <input
           placeholder="제목을 입력하세요."
-          value={title}
           onChange={onChangeTitle}
+          value={title}
         />
       </div>
       <div className="editor">
