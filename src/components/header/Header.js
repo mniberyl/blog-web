@@ -41,6 +41,7 @@ const Header = ({ user, onLogout }) => {
           ) : (
             <div className="header__right">
               <div className="header__right header__right--login">
+                {/* <button to="/login">Login</button> */}
                 <Link to="/login">Login</Link>
               </div>
             </div>

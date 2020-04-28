@@ -3,8 +3,9 @@ import { Route } from "react-router-dom";
 import "./App.scss";
 import LogInPage from "./pages/LogInPage";
 import RegisterPage from "./pages/RegisterPage";
-import PostViewerPage from "./pages/PostViewerPage";
 import WritePage from "./pages/WritePage";
+import PostViewerPage from "./pages/PostViewerPage";
+import PostListPage from "./pages/PostListPage";
 
 const App = () => {
   return (
@@ -13,8 +14,9 @@ const App = () => {
       <div className="responsive">
         <Route component={LogInPage} path="/login" />
         <Route component={RegisterPage} path="/register" />
-        <Route component={PostViewerPage} path="/@:username/:postId" />
         <Route component={WritePage} path="/write" />
+        <Route component={PostViewerPage} path="/@:username/:postId" />
+        <Route component={PostListPage} path={["/@:username", "/"]} exact />
       </div>
     </>
   );

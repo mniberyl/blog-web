@@ -28,7 +28,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
                 name="username"
                 placeholder="ID"
                 onChange={onChange}
-                // value={form.username}
+                value={form.username}
               />
               <input
                 authcomplete="new-password"
@@ -36,7 +36,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
                 type="password"
                 placeholder="PASSWORD"
                 onChange={onChange}
-                // value={form.password}
+                value={form.password}
               />
               {type === "register" && (
                 <input
@@ -45,7 +45,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
                   type="password"
                   placeholder="PASSWORD CONFIRM"
                   onChange={onChange}
-                  // value={form.passwordConfirm}
+                  value={form.passwordConfirm}
                 />
               )}
             </div>

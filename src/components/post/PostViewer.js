@@ -42,22 +42,27 @@ const PostViewer = ({ post, error, loading }) => {
 
   return (
     <div className="postviewer">
+      <div className="postviewer__title">{title}</div>
       <div className="postviewer__head">
-        <div className="postviewer__head-title">{title}</div>
-        <div className="postviewer__head-username">{user.username}</div>
+        <div className="postviewer__head-username">
+          Written by:&nbsp;
+          <div className="postviewer__head-username--id">@{user.username}</div>
+        </div>
         <div className="postviewer__head-date">
           {new Date(publishedDate).toLocaleDateString()}
         </div>
+      </div>
+      <div className="postviewer__tags" tags={tags}>
+        {tags.map((tag) => (
+          <Link to={`/?tag=${tag}`} key={tag}>
+            #{tags}
+          </Link>
+        ))}
       </div>
       <div
         className="postviewer__contents"
         dangerouslySetInnerHTML={{ __html: body }}
       />
-      <div className="postviewer__tags" tags={tags}>
-        {tags.map((tag) => (
-          <Link to={`/?tag=${tag}`} key={tag} />
-        ))}
-      </div>
     </div>
   );
 };
