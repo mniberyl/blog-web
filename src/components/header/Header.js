@@ -4,14 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../stores/user";
 import "./Header.scss";
 
-// import Responsive from "../common/responsive/Responsive";
-// import Button from './Button';
-
 const HeaderContainer = () => {
+  const dispatch = useDispatch();
   const { user } = useSelector(({ user }) => ({
     user: user.user,
   }));
-  const dispatch = useDispatch();
+
   const onLogout = () => {
     dispatch(logout());
   };

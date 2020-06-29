@@ -18,6 +18,7 @@ export const logout = createAction(LOGOUT);
 
 const checkSaga = createRequestSaga(CHECK, authAPI.check);
 
+// 로그인 검증 실패 시 정보 초기화
 function checkFailureSaga() {
   try {
     localStorage.removeItem("user"); // localStorage 에서 user 제거하고
@@ -37,7 +38,7 @@ function* logoutSaga() {
 
 export function* userSaga() {
   yield takeLatest(CHECK, checkSaga);
-  yield takeLatest(CHECK_FAILURE, checkFailureSaga);
+  yield takeLatest(CHECK_FAILURE, checkFailureSaga); // CHECK_FAILURE 액션이 발생할 때 checkFailureSaga 함수 호출
   yield takeLatest(LOGOUT, logoutSaga);
 }
 

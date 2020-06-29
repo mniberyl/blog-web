@@ -5,7 +5,7 @@ import { changeField, initializeForm, login } from "../../stores/auth";
 import { withRouter } from "react-router-dom";
 import { check } from "../../stores/user";
 
-const LoginForm = ({ history }) => {
+const LogInForm = ({ history }) => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
@@ -76,4 +76,4 @@ const LoginForm = ({ history }) => {
   );
 };
 
-export default withRouter(LoginForm);
+export default withRouter(LogInForm);

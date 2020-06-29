@@ -12,11 +12,11 @@ const App = () => {
     <>
       <title>Beryl Blog</title>
       <div className="responsive">
+        <Route component={PostListPage} path={["/@:username", "/"]} exact />
         <Route component={LogInPage} path="/login" />
         <Route component={RegisterPage} path="/register" />
         <Route component={WritePage} path="/write" />
         <Route component={PostViewerPage} path="/@:username/:postId" />
-        <Route component={PostListPage} path={["/@:username", "/"]} exact />
       </div>
     </>
   );

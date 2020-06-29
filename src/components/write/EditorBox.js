@@ -29,7 +29,7 @@ const EditorBoxContainer = () => {
   return <EditorBox onChangeField={onChangeField} title={title} body={body} />;
 };
 
-const EditorBox = ({ title, body, onChangeField }) => {
+const EditorBox = ({ title, onChangeField }) => {
   const editorRef = useRef();
 
   const onChangeBody = (e) => {

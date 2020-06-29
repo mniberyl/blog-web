@@ -46,16 +46,16 @@ const PostViewer = ({ post, error, loading }) => {
       <div className="postviewer__head">
         <div className="postviewer__head-username">
           Written by:&nbsp;
-          <div className="postviewer__head-username--id">@{user.username}</div>
+          <div className="postviewer__head-username-id">@{user.username}</div>
         </div>
         <div className="postviewer__head-date">
           {new Date(publishedDate).toLocaleDateString()}
         </div>
       </div>
-      <div className="postviewer__tags" tags={tags}>
+      <div className="postviewer__tags">
         {tags.map((tag) => (
           <Link to={`/?tag=${tag}`} key={tag}>
-            #{tags}
+            #{tag}
           </Link>
         ))}
       </div>

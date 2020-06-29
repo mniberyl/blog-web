@@ -8,7 +8,7 @@ import qs from "qs";
 const PostListContainer = ({ match, location }) => {
   const dispatch = useDispatch();
   const { posts, error, loading } = useSelector(({ posts, loading, user }) => ({
-    posts: posts.post,
+    posts: posts.posts,
     error: posts.error,
     loading: loading["posts/LIST_POSTS"],
     user: user.user,
@@ -21,40 +21,44 @@ const PostListContainer = ({ match, location }) => {
 */
   useEffect(() => {
     const { username } = match.params;
-    const { tag } = qs.parse(location.search, {
+    const { tag, page } = qs.parse(location.search, {
       ignoreQueryPrefix: true,
     });
-    dispatch(listPosts({ username, tag }));
+    dispatch(listPosts({ username, tag, page }));
   }, [dispatch, location.search, match.params]);
 
   return <PostList error={error} loading={loading} posts={posts} />;
 };
 
 const PostItem = ({ post }) => {
-  const { user, _id, title, body, tags, publishedDate } = post;
+  const { user, _id, title, body, /* tags */ publishedDate } = post;
   return (
-    <div className="postlist__wrap-list">
-      <div className="postlist__wrap-title">
+    <div className="postlist__list">
+      <div className="postlist__list-title">
         <Link to={`/@${user.username}/${_id}`}>{title}</Link>
       </div>
-      <div className="postlist__wrap-head">
-        <div className="postlist__wrap-head-username">
-          Written by
+      <div className="postlist__list-head">
+        <div className="postlist__list-head-username">
+          Written by&nbsp;
           <div
-            className="postlist_wrap-head-username--id"
+            className="postlist__list-head-username-id"
             username={user.username}
-          />
-          {user.username}
+          >
+            @{user.username}
+          </div>
         </div>
-        <div
-          className="postlist__wrap-head-date"
-          publishedDate={new Date(publishedDate)}
-        />
+        <div className="postlist__list-head-date">
+          {new Date(publishedDate).toLocaleDateString()}
+        </div>
       </div>
-      <div className="postlist__wrap-tags" tags={tags}>
-        {tags}
-      </div>
-      <div className="postlist__wrap-contents">{body}</div>
+      {/* <div className="postlist__list-tags" tags={tags}>
+        {tags.map((tag) => (
+          <Link to={`/?tag=${tag}`} key={tag}>
+            #{tag}
+          </Link>
+        ))}
+      </div> */}
+      <div className="postlist__list-contents">{body}</div>
     </div>
   );
 };

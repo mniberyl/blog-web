@@ -7,7 +7,7 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-// import { composeWithDevTools } from "redux-devtools-extenstion";
+import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer, { rootSaga } from "./stores";
 import { tempSetUser, check } from "./stores/user";
 /**
@@ -19,7 +19,10 @@ import { tempSetUser, check } from "./stores/user";
 const sagaMiddleware = createSagaMiddleware();
 // 스토어에 mount
 // 리덕스 상태 추적을 위해 redux-devtools-extension 확장모듈 사용 고려
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
+);
 
 function loadUser() {
   try {
