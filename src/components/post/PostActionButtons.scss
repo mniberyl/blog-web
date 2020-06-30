@@ -1,0 +1,30 @@
+.post_action {
+    display: flex;
+    justify-content: flex-end;
+
+    &__btns {
+      height: 2rem;
+      border: 0;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      color: #fff;
+      cursor: pointer;
+      & + & {
+        margin-left: 0.75rem;
+      }
+
+      &--edit {
+        background: #875e00;
+        &:hover {
+          background: #cc723d;
+        }
+      }
+      &--remove {
+        background: #d49875;
+        &:hover {
+          background: #cc723d;
+          color: #fff;
+        }
+      }
+    }
+  }

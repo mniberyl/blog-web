@@ -4,10 +4,10 @@ import PostViewer from "../components/post/PostViewer";
 
 const PostViewerPage = () => {
   return (
-    <div>
+    <>
       <Header />
       <PostViewer />
-    </div>
+    </>
   );
 };
 

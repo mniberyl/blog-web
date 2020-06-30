@@ -2,8 +2,8 @@ import React from "react";
 import "./Pagination.scss";
 import qs from "qs";
 import { useSelector } from "react-redux";
-import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+
 
 const PaginationContainer = ({ location, match }) => {
   const { lastPage, posts, loading } = useSelector(({ posts, loading }) => ({
@@ -32,18 +32,20 @@ const PaginationContainer = ({ location, match }) => {
   );
 };
 
-const buildLink = ({ username, tag, page }) => {
-  const query = qs.stringify({ tag, page });
-  return username ? `/@${username}?${query}` : `/?${query}`;
-};
+
 
 const Pagination = ({ tag, username, page, lastPage }) => {
+  const buildLink = ({ username, tag, page }) => {
+    const query = qs.stringify({ tag, page });
+    return username ? `/@${username}?${query}` : `/?${query}`;
+  };
+
   return (
     <div className="pagination">
       <Link
         disabled={page === 1}
         to={
-          page === 1 ? undefined : buildLink({ username, tag, page: page - 1 })
+          page === 1 ? "" : buildLink({ username, tag, page: page - 1 })
         }
       >
         이전
@@ -53,7 +55,7 @@ const Pagination = ({ tag, username, page, lastPage }) => {
         disabled={page === lastPage}
         to={
           page === lastPage
-            ? undefined
+            ? ""
             : buildLink({ username, tag, page: page + 1 })
         }
       >

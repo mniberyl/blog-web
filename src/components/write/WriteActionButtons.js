@@ -46,7 +46,6 @@ const WriteActionButtonsContainer = ({ history }) => {
     }
     if (postError) {
       console.log(postError);
-      console.log(post);
     }
   }, [history, post, postError]);
 

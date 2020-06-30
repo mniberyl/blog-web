@@ -48,8 +48,8 @@ const LogInForm = ({ history }) => {
       return;
     }
     if (auth) {
-      console.log("로그인 성공");
-      console.log(auth);
+      // console.log("로그인 성공");
+      // console.log(auth);
       dispatch(check());
     }
   }, [auth, authError, dispatch]);
